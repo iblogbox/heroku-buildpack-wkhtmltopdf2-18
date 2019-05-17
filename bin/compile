@@ -29,6 +29,9 @@ echo "-----> Installing wkhtmltopdf 0.12.2.1"
 mkdir -p $BUILD_DIR/.apt
 dpkg -x $DEB $BUILD_DIR/.apt/
 
+cp "$SOURCE_DIR/libpng12.so.0" "$BUILD_DIR/.apt/usr/local/lib"
+
+
 echo "Writing profile script" | indent
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/wkhtmltopdf.sh
