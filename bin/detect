@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "wkhtmltopdf2"
+exit 0
