@@ -15,6 +15,7 @@ CACHE_DIR=$2
 SOURCE_DIR="$(dirname $0)/../compiled"
 
 DEB="$SOURCE_DIR/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb"
+#DEB="$SOURCE_DIR/wkhtmltox_0.12.6-1.bionic_amd64.deb"
 
 :<<'END'
 TS=`date +%s`
@@ -30,6 +31,8 @@ mkdir -p $BUILD_DIR/.apt
 dpkg -x $DEB $BUILD_DIR/.apt/
 
 cp "$SOURCE_DIR/libpng12.so.0" "$BUILD_DIR/.apt/usr/local/lib"
+cp "$SOURCE_DIR/libcrypto.so.1.0.0" "$BUILD_DIR/.apt/usr/local/lib"
+cp "$SOURCE_DIR/libssl.so.1.0.0" "$BUILD_DIR/.apt/usr/local/lib"
 
 
 echo "Writing profile script" | indent
